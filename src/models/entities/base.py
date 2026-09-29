@@ -1,8 +1,7 @@
 import uuid
 from typing import ClassVar
 
-import pendulum
-from sqlalchemy import DateTime
+from sqlalchemy import DateTime, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -24,11 +23,13 @@ class BaseModel(Base):
         index=True,
     )
     created_at: Mapped[DateTime] = mapped_column(
-        DateTime(timezone=True), default=pendulum.now(), nullable=False
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
     )
     updated_at: Mapped[DateTime] = mapped_column(
         DateTime(timezone=True),
-        default=pendulum.now(),
-        onupdate=pendulum.now(),
+        server_default=func.now(),
+        onupdate=func.now(),
         nullable=False,
     )

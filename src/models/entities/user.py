@@ -9,3 +9,4 @@ class UserModel(BaseModel):
     first_name: Mapped[str] = mapped_column(String(10), nullable=False)
     last_name: Mapped[str] = mapped_column(String(60), nullable=False)
     email: Mapped[str] = mapped_column(String(120), nullable=False)
+    password: Mapped[str] = mapped_column(String(60), nullable=False)

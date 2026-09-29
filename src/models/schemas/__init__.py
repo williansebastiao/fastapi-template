@@ -1,4 +1,5 @@
 from .health import HealthCheckResponse
+from .page import PageResponse
 from .user import (
     UserRequest,
     UserResponse,
@@ -8,6 +9,7 @@ from .user import (
 
 __all__ = [
     "HealthCheckResponse",
+    "PageResponse",
     "UserRequest",
     "UserResponse",
     "UserUpdatePasswordRequest",
